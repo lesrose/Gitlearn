@@ -1,84 +1,84 @@
-Spring��һ����Դ��ܣ�Spring����2003 �������һ����������Java ������ܣ�
-��Rod Johnson ��������Expert One-On-One J2EE Development and Design�в����Ĳ��������ԭ������������
-����Ϊ�˽����ҵӦ�ÿ����ĸ����Զ������ġ�Springʹ�û�����JavaBean�������ǰֻ������EJB��ɵ����顣
-Ȼ����Spring����;�������ڷ������˵Ŀ������Ӽ��ԡ��ɲ����Ժ�����ϵĽǶȶ��ԣ�
-�κ�JavaӦ�ö����Դ�Spring�����档 ����˵��Spring��һ���������Ŀ��Ʒ�ת��IoC�����������棨AOP����������ܡ�
+﻿Spring是一个开源框架，Spring是于2003 年兴起的一个轻量级的Java 开发框架，
+由Rod Johnson 在其著作Expert One-On-One J2EE Development and Design中阐述的部分理念和原型衍生而来。
+它是为了解决企业应用开发的复杂性而创建的。Spring使用基本的JavaBean来完成以前只可能由EJB完成的事情。
+然而，Spring的用途不仅限于服务器端的开发。从简单性、可测试性和松耦合的角度而言，
+任何Java应用都可以从Spring中受益。 简单来说，Spring是一个轻量级的控制反转（IoC）和面向切面（AOP）的容器框架。
 
-Spring MVC����SpringFrameWork�ĺ�����Ʒ���Ѿ��ں���Spring Web Flow���档Spring MVC �����˿�������ģ�Ͷ��󡢷������Լ������������Ľ�ɫ��
-���ַ��������Ǹ����׽��ж��ơ�
+Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring MVC 分离了控制器、模型对象、分派器以及处理程序对象的角色，
+这种分离让它们更容易进行定制。
 
-MyBatis ����apache��һ����Դ��ĿiBatis, 2010�������Ŀ��apache software foundation Ǩ�Ƶ���google code�����Ҹ���ΪMyBatis ��MyBatis��һ������Java�ĳ־ò��ܡ�
-iBATIS�ṩ�ĳ־ò��ܰ���SQL Maps��Data Access Objects��DAO��MyBatis �����˼������е�JDBC����Ͳ������ֹ������Լ�������ļ�����
-MyBatis ʹ�ü򵥵� XML��ע���������ú�ԭʼӳ�䣬���ӿں� Java ��POJOs��Plain Old Java Objects����ͨ�� Java����ӳ������ݿ��еļ�¼��
-
-
-SSM�����spring MVC ��spring��mybatis��ܵ����ϣ��Ǳ�׼��MVCģʽ��������ϵͳ����Ϊ���ֲ㣬controller�㣬service�㣬DAO���Ĳ�
-ʹ��spring MVC���������ת������ͼ����
-springʵ��ҵ����������mybatis��Ϊ���ݶ���ĳ־û�����
-
-Spring������:
-ͨ��Spring��IOC���ԣ�������֮���������ϵ������Spring���ƣ����������˿���
-ͨ��Spring��AOP���ԣ����ظ�ģ����м��У�ʵ��������־��Ȩ�޵Ŀ���
-�ṩ�˶��������㿪Դ��ܵļ���֧��
-
-2.Spring MVC������:
-SpringMVC��ʹ����MVC���˼���������web��ܣ���web����н��
-ʹ���ǿ����������Spring�޷��ν�����������֤����ʽ�������ݰ󶨻���
-
-3.Mybatis������:
-���ݿ�Ĳ���(sql)����xml�ļ����ã������sql�ʹ�������
-�ṩӳ���ǩ��֧�ֶ���ͺ����ݿ�orm�ֶι�ϵ��ӳ�䣬֧�ֶ����ϵӳ���ǩ��֧�ֶ����ϵ���齨
-�ṩ��xml��ǩ��֧�ֶ�̬��sql
+MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了google code，并且改名为MyBatis 。MyBatis是一个基于Java的持久层框架。
+iBATIS提供的持久层框架包括SQL Maps和Data Access Objects（DAO）MyBatis 消除了几乎所有的JDBC代码和参数的手工设置以及结果集的检索。
+MyBatis 使用简单的 XML或注解用于配置和原始映射，将接口和 Java 的POJOs（Plain Old Java Objects，普通的 Java对象）映射成数据库中的记录。
 
 
-IOC:���Ʒ�ת����һ�ֽ��Ͷ���֮����Ϲ�ϵ�����˼�룬���ӣ��ⷿ�ӣ���ǰ�ⷿ����Ҫһ������һ�������ң���ʱ������Ȼ�����ڼ���һ�������н飬
-������Ҫ�ķ��͸����н飬�Ϳ���ֱ��ѡ����Ҫ�ķ��ӣ��н���൱��spring������
+SSM框架是spring MVC ，spring和mybatis框架的整合，是标准的MVC模式，将整个系统划分为表现层，controller层，service层，DAO层四层
+使用spring MVC负责请求的转发和视图管理
+spring实现业务对象管理，mybatis作为数据对象的持久化引擎
 
-AOP:���������̣���������󿪷���һ�ֲ��䣬������������Ա�ڲ��ı�ԭ��ģ�͵Ļ����϶�̬���޸�ģ���������µ�����
-�磺��̬��������־����ȫ���쳣�����ȡ�AOPʹҵ���߼������ּ����϶Ƚ��ͣ���߳���������ԣ���߿���Ч�ʡ�
+Spring的优势:
+通过Spring的IOC特性，将对象之间的依赖关系交给了Spring控制，方便解耦，简化了开发
+通过Spring的AOP特性，对重复模块进行集中，实现事务，日志，权限的控制
+提供了对其他优秀开源框架的集成支持
 
+2.Spring MVC的优势:
+SpringMVC是使用了MVC设计思想的轻量级web框架，对web层进行解耦，
+使我们开发更简洁与Spring无缝衔接灵活的数据验证，格式化，数据绑定机制
 
-
-�־ò㣺DAO�㣨mapper��DAO�㣺DAO����Ҫ�������ݳ־ò�Ĺ��������������ݿ���������һЩ���񶼷�װ�ڴˣ� DAO���������������DAO�Ľӿڣ�
-Ȼ����Spring�������ļ��ж���˽ӿڵ�ʵ���࣬
-Ȼ��Ϳ���ģ���е��ô˽ӿ�����������ҵ��Ĵ����������ù��Ĵ˽ӿڵľ���ʵ�������ĸ��࣬�Եýṹ�ǳ�������
-DAO�������Դ���ã��Լ��й����ݿ����ӵĲ�������Spring�������ļ��н������á�
-ҵ��㣺Service��Service�㣺Service����Ҫ����ҵ��ģ����߼�Ӧ����ơ� ������ƽӿڣ��������ʵ�ֵ��࣬
-��������Spring�������ļ���������ʵ�ֵĹ������������ǾͿ�����Ӧ���е���Service�ӿ�������ҵ������
-Service���ҵ��ʵ�֣�����Ҫ���õ��Ѷ����DAO��Ľӿڣ�
-��װService���ҵ���߼�������ͨ�õ�ҵ���߼��Ķ����Ժ��ظ������ԣ������Ե÷ǳ���ࡣ
-���Ʋ㣺Controller�㣨Handler�㣩Controller��:Controller�㸺������ҵ��ģ�����̵Ŀ��ƣ� 
-�ڴ˲�����Ҫ����Service��Ľӿ�������ҵ�����̣����Ƶ�����Ҳͬ������Spring�������ļ�������У�
-��Ծ����ҵ�����̣����в�ͬ�Ŀ����������Ǿ������ƹ����п��Խ����̽��г�����ɣ�
-��Ƴ������ظ����õ��ӵ�Ԫ����ģ�飬��������ʹ����ṹ���������Ҳ�������˴�������
-View��
-View�� �˲�����Ʋ��ϱȽϽ��ܣ���Ҫ���߽������Эͬ������View����Ҫ����ǰ̨jspҳ��ı�ʾ.
-
-������ϵ
-DAO�㣬Service����������ζ����Ե����������������϶Ⱥܵͣ���ȫ���Զ������У�������һ��ģʽ�ڿ�������Ŀ�Ĺ���������������
-Controller��View����Ϊ��϶ȱȽϸߣ����Ҫ�����һ�𿪷�������Ҳ���Կ���һ�����������ǰ��������п������������ڲ����֮ǰ����ֻ��Ҫ֪���ӿڵĶ��壬
-���ýӿڼ����������Ҫ���߼���ԪӦ�ã�һ���Ե÷ǳ������򵥡�
-
-Service�߼������
-Service���ǽ�����DAO��֮�ϵģ�������DAO���ſ��Խ���Service�㣬��Service��������Controller��֮�µģ����Service��Ӧ�üȵ���DAO��Ľӿڣ���Ҫ�ṩ�ӿڸ�Controller����������е��ã�
-���պô���һ���м���λ�á�ÿ��ģ�Ͷ���һ��Service�ӿڣ�ÿ���ӿڷֱ��װ���Ե�ҵ����������
-
-SQL Serverϵ��������Microsoft ��˾�Ƴ��Ĺ�ϵ�����ݿ����ϵͳ��2014��4��16���ھɽ�ɽ�ٿ���һ���������ϣ�΢��CEO�����ǡ��ɵ���������ʽ�Ƴ���SQL Server 2014����
-SQL Server 2014�汾�ṩ����ҵ��Ԧ�������ϵĹؼ�����in-memory��ǿ�������ڽ���In-Memory�����ܹ������ƶ˸������Ͻṹ�����������Ч�ܼ��߶�����ѹ�����������԰����ͻ�����ҵ�����ȫ�µ�Ӧ�û��������л���
-ͬʱ�ṩ��Microsoft Office����ķ������ߣ�ͨ����Excel��Power BI for Office 365�ļ��ɣ�SQL Server 2014�ṩ��ҵ����Ա�������������Ͻ��м�ʱ�ľ��߷�������ҵ���ܹ��ܣ�
-���ɰ�����ҵԱ��������Ϥ�Ĺ��ߣ����������Ѷת���ɻ����ǻۣ�����Դ���Ӹ����Ӫ�˼�ֵ������������ҵ���ܺ����ȡ�
-
-Eclipse ��һ������Դ����ġ�����Java�Ŀ���չ����ƽ̨�����䱾�����ԣ���ֻ��һ����ܺ�һ���������ͨ����������������������
-
-Tomcat��Apache ��������ᣨApache Software Foundation����Jakarta ��Ŀ�е�һ��������Ŀ����Apache��Sun ������һЩ��˾�����˹�ͬ�������ɡ���������Sun �Ĳ����֧�֣����µ�Servlet ��JSP �淶��������Tomcat �еõ����֣�
-Tomcat 5֧�����µ�Servlet 2.4 ��JSP 2.0 �淶����ΪTomcat �����Ƚ��������ȶ���������ѣ���ΪĿǰ�Ƚ����е�Web Ӧ�÷�������
+3.Mybatis的优势:
+数据库的操作(sql)采用xml文件配置，解除了sql和代码的耦合
+提供映射标签，支持对象和和数据库orm字段关系的映射，支持对象关系映射标签，支持对象关系的组建
+提供了xml标签，支持动态的sql
 
 
-Google Chrome����Google������һ����Ƽ򵥡���Ч��Web������ߡ�
-Google Chrome���ص��Ǽ�ࡢ���١�GoogleChrome֧�ֶ��ǩ�����ÿ����ǩҳ�涼�ڶ����ġ�ɳ�䡱�����У�����߰�ȫ�Ե�ͬʱ��һ����ǩҳ��ı���Ҳ���ᵼ��������ǩҳ�汻�رա�
-���⣬Google Chrome���ڸ�ǿ���JavaScript V8���棬���ǵ�ǰWeb��������޷�ʵ�ֵġ�
+IOC:控制反转，是一种降低对象之间耦合关系的设计思想，例子：租房子，以前租房子需要一个房子一个房子找，费时费力，然后现在加入一个房屋中介，
+把你需要的房型告诉中介，就可以直接选到需要的房子，中介就相当于spring容器。
 
-���̲����Ǿ����ƾ���ʷ��Ӧ�ÿ�ѧ�ͼ����������о��ͷ���Χ�ᴩ���ִ����̽���͹�������Ĺ滮����Ӫ�����������С����ŵ�����ѧ�����Ľ�����������΢���Ӽ��������⼼����������������ռ似���������ͨ�ż����ķ��ٷ�չ��Ӧ�ã�
-������ƶ�����������ѧ�����ķ�չ����������ϵ��Ӧ�÷�Χ�������˾޴�ı仯�ͽ�������Ϊ���̲���ѧ�Ƶ����ۺͼ����ķ�չ�ṩ�˼�ʵ�Ļ���
+AOP:面向切面编程，是面向对象开发的一种补充，它允许开发人员在不改变原来模型的基础上动态的修改模型以满足新的需求，
+如：动态的增加日志、安全或异常处理等。AOP使业务逻辑各部分间的耦合度降低，提高程序可重用性，提高开发效率。
+
+
+
+持久层：DAO层（mapper）DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此， DAO层的设计首先是设计DAO的接口，
+然后在Spring的配置文件中定义此接口的实现类，
+然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，
+DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。
+业务层：Service层Service层：Service层主要负责业务模块的逻辑应用设计。 首先设计接口，再设计其实现的类，
+接着再在Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。
+Service层的业务实现，具体要调用到已定义的DAO层的接口，
+封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。
+控制层：Controller层（Handler层）Controller层:Controller层负责具体的业务模块流程的控制， 
+在此层里面要调用Service层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，
+针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，
+设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。
+View层
+View层 此层与控制层结合比较紧密，需要二者结合起来协同工发。View层主要负责前台jsp页面的表示.
+
+各层联系
+DAO层，Service层这两个层次都可以单独开发，互相的耦合度很低，完全可以独立进行，这样的一种模式在开发大项目的过程中尤其有优势
+Controller，View层因为耦合度比较高，因而要结合在一起开发，但是也可以看作一个整体独立于前两个层进行开发。这样，在层与层之前我们只需要知道接口的定义，
+调用接口即可完成所需要的逻辑单元应用，一切显得非常清晰简单。
+
+Service逻辑层设计
+Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，
+它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。
+
+SQL Server系列软件是Microsoft 公司推出的关系型数据库管理系统。2014年4月16日于旧金山召开的一场发布会上，微软CEO萨蒂亚·纳德拉宣布正式推出“SQL Server 2014”。
+SQL Server 2014版本提供了企业驾驭海量资料的关键技术in-memory增强技术，内建的In-Memory技术能够整合云端各种资料结构，其快速运算效能及高度资料压缩技术，可以帮助客户加速业务和向全新的应用环境进行切换。
+同时提供与Microsoft Office连结的分析工具，通过与Excel和Power BI for Office 365的集成，SQL Server 2014提供让业务人员可以自主将资料进行即时的决策分析的商业智能功能，
+轻松帮助企业员工运用熟悉的工具，把周遭的资讯转换成环境智慧，将资源发挥更大的营运价值，进而提升企业产能和灵活度。
+
+Eclipse 是一个开放源代码的、基于Java的可扩展开发平台。就其本身而言，它只是一个框架和一组服务，用于通过插件组件构建开发环境。
+
+Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，
+Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，成为目前比较流行的Web 应用服务器。
+
+
+Google Chrome是由Google开发的一款设计简单、高效的Web浏览工具。
+Google Chrome的特点是简洁、快速。GoogleChrome支持多标签浏览，每个标签页面都在独立的“沙箱”内运行，在提高安全性的同时，一个标签页面的崩溃也不会导致其他标签页面被关闭。
+此外，Google Chrome基于更强大的JavaScript V8引擎，这是当前Web浏览器所无法实现的。
+
+工程测量是具有悠久历史的应用科学和技术，它的研究和服务范围贯穿在现代工程建设和国防建设的规划和运营的整个过程中。随着当代科学技术的进步，尤其是微电子技术、激光技术、计算机技术、空间技术、网络和通信技术的飞速发展和应用，
+极大地推动了整个测绘科学技术的发展，从理论体系到应用范围都发生了巨大的变化和进步，亦为工程测量学科的理论和技术的发展提供了坚实的基础
 
 huxinkai1995ASD
